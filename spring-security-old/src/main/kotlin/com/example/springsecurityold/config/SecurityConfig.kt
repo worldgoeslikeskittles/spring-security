@@ -11,11 +11,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 class SecurityConfig : WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity) {
+        super.configure(http)
         http.authorizeRequests()
-            .antMatchers("/registration").permitAll()
+            .antMatchers("/registration")
+            .permitAll()
             .mvcMatchers(HttpMethod.POST, "/registration/manager")
-            .hasRole(Role.MANAGER.name)
-
+            .hasRole("MANAGER")
+            .antMatchers("/")
+            .hasAuthority("ROLE_MANAGER")
     }
 
     override fun configure(web: WebSecurity) {
