@@ -6,10 +6,6 @@ import javax.persistence.*
 @Entity
 @Table(name = "employees")
 class Employee (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    var id: Long? = null,
     @Column(name = "phone", nullable = false)
     var phone: String,
     @Column(name = "work_hours", nullable = false)
@@ -19,8 +15,13 @@ class Employee (
     var employeeType: EmployeeType,
     @Column(name = "user_id", nullable = false)
     var userId: Long,
-    @Column(name = "speciality", nullable = false)
-    var speciality: String,
+    @Column(name = "speciality", nullable = true)
+    var speciality: String? = null,
     @Column(name = "full_name", nullable = false)
     var fullName: String
-)
+) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    var id: Long? = null
+}

@@ -29,6 +29,7 @@ dependencies {
 	implementation("com.h2database:h2:2.1.214")
 	implementation("org.liquibase:liquibase-core")
 	implementation("org.jetbrains.kotlin.plugin.spring:org.jetbrains.kotlin.plugin.spring.gradle.plugin:1.9.0-RC")
+	implementation("io.jsonwebtoken:jjwt:0.9.1")
 }
 
 tasks.withType<KotlinCompile> {

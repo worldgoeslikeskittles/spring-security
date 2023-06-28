@@ -1,6 +1,7 @@
 package com.example.springsecurityold.security.entity
 
 import com.example.springsecurityold.domain.entity.User
+import com.example.springsecurityold.domain.enumerated.Role
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
@@ -11,7 +12,7 @@ class SecurityUser( private val user: User) : UserDetails {
     override fun getUsername(): String = user.username
 
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
-        TODO("Not yet implemented")
+        return arrayListOf(Role.MANAGER)
     }
 
     override fun isAccountNonExpired(): Boolean =  true

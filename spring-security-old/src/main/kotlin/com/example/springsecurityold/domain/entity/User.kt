@@ -7,10 +7,6 @@ import javax.persistence.*
 @Entity
 @Table(name = "users")
 class User(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    var id: Long? = null,
     @Column(name = "username", nullable = false)
     var username: String,
     @Column(name = "password", nullable = false)
@@ -18,4 +14,9 @@ class User(
     @Column(name = "role", nullable = false)
     @Enumerated(value = EnumType.STRING)
     var role: Role
-)
+) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    var id: Long? = null
+}
