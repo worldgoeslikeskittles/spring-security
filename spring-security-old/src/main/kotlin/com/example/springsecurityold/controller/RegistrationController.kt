@@ -2,7 +2,7 @@ package com.example.springsecurityold.controller
 
 import com.example.springsecurityold.dto.ClientRegistrationDto
 import com.example.springsecurityold.dto.EmployeeRegistrationDto
-import com.example.springsecurityold.service.RegistrationService
+import com.example.springsecurityold.service.AccountService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/registration")
 class RegistrationController(
-    private val accountService: RegistrationService
+    private val accountService: AccountService
 ) {
     @PostMapping("/client")
     fun registerClient(dto: ClientRegistrationDto) = accountService.registerClient(dto)

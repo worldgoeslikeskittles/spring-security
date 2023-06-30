@@ -8,7 +8,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
 import java.lang.IllegalArgumentException
-import java.net.PasswordAuthentication
 import java.util.*
 import javax.annotation.PostConstruct
 import javax.naming.AuthenticationException

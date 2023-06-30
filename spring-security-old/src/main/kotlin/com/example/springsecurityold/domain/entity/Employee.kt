@@ -10,7 +10,7 @@ class Employee (
     var phone: String,
     @Column(name = "work_hours", nullable = false)
     var workHours: String,
-    @Column(name = "emplyee_type", nullable = false)
+    @Column(name = "employee_type", nullable = false)
     @Enumerated(value = EnumType.STRING)
     var employeeType: EmployeeType,
     @Column(name = "user_id", nullable = false)
