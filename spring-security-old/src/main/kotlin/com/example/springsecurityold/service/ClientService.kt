@@ -31,4 +31,6 @@ class ClientService(
         }
 
     fun saveClient(client: Client) = clientRepository.save(client)
+
+    fun getClientById(id: Long) = clientRepository.getClientById(id)
 }

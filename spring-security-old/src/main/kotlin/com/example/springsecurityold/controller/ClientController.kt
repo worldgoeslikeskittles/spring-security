@@ -4,6 +4,7 @@ import com.example.springsecurityold.dto.ClientDto
 import com.example.springsecurityold.service.ClientService
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -22,4 +23,7 @@ class ClientController(
 
     @PutMapping("/current")
     fun updateCurrentClient(principal: Principal, dto: ClientDto) = clientService.updateClientCard(principal, dto)
+
+    @GetMapping("/{id}")
+    fun getClientById(@PathVariable("id") id: Long) = clientService.getClientById(id)
 }

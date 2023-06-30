@@ -19,15 +19,16 @@ class SecurityConfig(
             .antMatchers("/registration").permitAll()
             .mvcMatchers("/registration/manager").hasRole(Role.ADMIN.authority)
             .mvcMatchers("/registration/doctor").hasRole(Role.ADMIN.authority)
-            .antMatchers("**/current").permitAll() // проверить
+            .antMatchers("**/current").permitAll()
             .mvcMatchers("/clients/all").hasAnyRole(Role.MANAGER.authority, Role.ADMIN.authority)
-            .mvcMatchers("/clients/{id}").not().hasRole(Role.CLIENT.authority) // проверить
+            .mvcMatchers("/clients/{id}")
+            .hasAnyRole(Role.MANAGER.authority, Role.ADMIN.authority, Role.DOCTOR.authority)
             .mvcMatchers("/visits/doctor/{doctorId}").hasAnyRole(Role.MANAGER.authority, Role.ADMIN.authority)
             .mvcMatchers("/employees/doctors").permitAll()
             .anyRequest().authenticated()
-
         http.httpBasic()
-    // и так далее...
+        http.formLogin()
+        // и так далее...
     }
 
     override fun configure(web: WebSecurity) {
@@ -38,5 +39,5 @@ class SecurityConfig(
     //fun getJWTTokenFilter(jwtTokenProvider: JWTTokenProvider) = JWTTokenFilter()
 
     @Bean
-    fun passwordEncoder() : PasswordEncoder = NoOpPasswordEncoder.getInstance()
+    fun passwordEncoder(): PasswordEncoder = NoOpPasswordEncoder.getInstance()
 }
