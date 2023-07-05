@@ -25,5 +25,6 @@ class ClientController(
     fun updateCurrentClient(principal: Principal, dto: ClientDto) = clientService.updateClientCard(principal, dto)
 
     @GetMapping("/{id}")
-    fun getClientById(@PathVariable("id") id: Long) = clientService.getClientById(id)
+    fun getClientById(@PathVariable("id") id: Long) =
+        clientService.getClientById(id)
 }

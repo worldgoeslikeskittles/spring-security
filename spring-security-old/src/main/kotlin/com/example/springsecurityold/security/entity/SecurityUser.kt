@@ -12,7 +12,7 @@ class SecurityUser( private val user: User) : UserDetails {
     override fun getUsername(): String = user.username
 
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
-        return arrayListOf(Role.MANAGER)
+        return arrayListOf(user.role)
     }
 
     override fun isAccountNonExpired(): Boolean =  true
