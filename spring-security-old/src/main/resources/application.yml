@@ -12,9 +12,6 @@ spring:
     console:
       enabled: true
 
-server:
-  port: 8092
-
 jwt:
   secret: someSecretKey
   expiration: 66666

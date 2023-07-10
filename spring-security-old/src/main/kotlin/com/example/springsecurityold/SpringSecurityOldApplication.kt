@@ -8,4 +8,5 @@ class SpringSecurityOldApplication
 
 fun main(args: Array<String>) {
     val a = runApplication<SpringSecurityOldApplication>(*args)
+    val b = 1;
 }
